@@ -1,6 +1,4 @@
 import streamlit as st
-import pytesseract
-from pytesseract import Output, TesseractError
 from funcoes import convert_pdf_to_txt_file, save_pages
 
 st.set_page_config(layout="wide")
