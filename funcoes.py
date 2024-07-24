@@ -5,6 +5,7 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from io import StringIO
+from zipfile import ZipFile
 
 @st.cache_data
 def convert_pdf_to_txt_file(path):
@@ -27,6 +28,25 @@ def convert_pdf_to_txt_file(path):
     device.close()
     retstr.close()
     return t, nbPages
+
+@st.cache_data
+def save_pages(pages):
+  
+  files = []
+  for page in range(len(pages)):
+    filename = "page_"+str(page)+".txt"
+    with open("./file_pages/"+filename, 'w', encoding="utf-8") as file:
+      file.write(pages[page])
+      files.append(file.name)
+  
+  # create zipfile object
+  # zipPath = './file_pages/pdf_to_txt.zip'
+  # zipObj = ZipFile(zipPath, 'w')
+  # for f in files:
+  #   zipObj.write(f)
+  # zipObj.close()
+    
+  # return zipPath
 
 def DadosRetornoCSV(TAMANHO_DADO, DADO_INICIO, DADO_FINAL, TEXTO_COMPLETO):
   DADOS_RESLTANTE = TEXTO_COMPLETO[DADO_INICIO + TAMANHO_DADO : DADO_FINAL-1]
