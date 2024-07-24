@@ -1,2 +1,6 @@
 streamlit
 pdfminer==20191125
+pdfminer.pdfinterp
+from pdfminer.converter
+from pdfminer.layout
+from pdfminer.pdfpage
