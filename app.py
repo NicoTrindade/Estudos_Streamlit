@@ -1,11 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-# st.write("Hello world!")
-# st.write("We love studying")
-
-# st.write("Testando streamlit. By Nielson")
-
 st.set_page_config(layout="wide")
 
 with st.sidebar:
